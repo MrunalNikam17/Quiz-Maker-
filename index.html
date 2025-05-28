@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Maker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="roleSelection" class="role-selection">
+        <h1 class="main-title">Quiz Maker</h1>
+        <div class="role-buttons">
+            <button id="adminBtn" class="role-btn admin-btn">
+                <i class="fas fa-user-shield"></i> Admin Login
+            </button>
+            <button id="studentBtn" class="role-btn student-btn">
+                <i class="fas fa-user-graduate"></i> Student Login
+            </button>
+        </div>
+    </div>
+
+    <div id="authSection" style="display: none;">
+        <div class="auth-container">
+            <h2 id="authTitle">Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+
+            <div id="registerSection" style="display: none;">
+                <h2>Create Account</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </form>
+            </div>
+            <button id="backToRolesBtn" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Roles
+            </button>
+        </div>
+    </div>
+
+    <div id="quizSection" style="display: none;">
+        <header>
+            <h1>Quiz Application</h1>
+            <div class="user-info">
+                <span>Logged in as: <span id="userRole"></span></span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" style="display: none;">
+            <div class="admin-actions">
+                <button id="createQuizBtn" class="action-btn">
+                    <i class="fas fa-plus"></i> Create New Quiz
+                </button>
+                <button id="viewQuizzesBtn" class="action-btn">
+                    <i class="fas fa-list"></i> View All Quizzes
+                </button>
+                <button id="viewPerformanceBtn" class="action-btn">
+                    <i class="fas fa-chart-bar"></i> View Student Performance
+                </button>
+            </div>
+
+            <!-- Create/Edit Quiz Form -->
+            <div id="quizForm" style="display: none;" class="quiz-form">
+                <h2>Create/Edit Quiz</h2>
+                <div class="form-group">
+                    <input type="text" id="quizTitle" class="form-control" placeholder="Quiz Title" required>
+                    <input type="hidden" id="editQuizId">
+                </div>
+                <div id="questionList" class="questions-container">
+                    <!-- Questions will be added here dynamically -->
+                </div>
+                <div class="form-actions">
+                    <button id="addQuestionBtn" type="button" class="btn btn-success">
+                        Add Question
+                    </button>
+                    <button id="saveQuizBtn" type="button" class="btn btn-primary">
+                        Save Quiz
+                    </button>
+                    <button id="cancelBtn" type="button" class="btn btn-secondary">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz List -->
+            <div id="quizList" class="quiz-list">
+                <h2>All Quizzes</h2>
+                <div class="quizzes-container"></div>
+            </div>
+
+            <!-- Student Performance -->
+            <div id="studentPerformance" style="display: none;">
+                <h2>Student Performance</h2>
+                <div class="performance-filters">
+                    <select id="quizFilter">
+                        <option value="">All Quizzes</option>
+                    </select>
+                    <button id="applyFilterBtn">Apply Filter</button>
+                </div>
+                <div class="performance-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Quiz Title</th>
+                                <th>Score</th>
+                                <th>Date Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="performanceData">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="studentDashboard" style="display: none;">
+            <div class="student-actions">
+                <button id="viewAvailableQuizzesBtn" class="action-btn">
+                    <i class="fas fa-list"></i> Available Quizzes
+                </button>
+                <button id="viewMyPerformanceBtn" class="action-btn">
+                    <i class="fas fa-chart-line"></i> My Performance
+                </button>
+            </div>
+
+            <div id="availableQuizzes" style="display: none;">
+                <h2>Available Quizzes</h2>
+                <div class="quizzes-container"></div>
+            </div>
+
+            <div id="studentPerformance" style="display: none;">
+                <h2>My Performance</h2>
+                <div class="performance-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quiz Title</th>
+                                <th>Score</th>
+                                <th>Correct Answers</th>
+                                <th>Date Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myPerformanceData">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="quizTakingSection" style="display: none;">
+                <h2 id="quizTakingTitle"></h2>
+                <div id="quizQuestions"></div>
+                <button id="submitQuizBtn">Submit Quiz</button>
+                <button id="cancelQuizBtn">Cancel</button>
+            </div>
+
+            <div id="quizResults" style="display: none;">
+                <h2>Quiz Results</h2>
+                <p>Score: <span id="quizScore"></span></p>
+                <p>Correct Answers: <span id="correctAnswers"></span> out of <span id="totalQuestions"></span></p>
+                <button id="backToQuizzesBtn">Back to Quizzes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error" style="display: none;"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
