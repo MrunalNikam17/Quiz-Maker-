@@ -21,7 +21,6 @@ An interactive, full-stack Quiz Web App designed to engage users with organized 
 |------------|-------------|--------------|----------------|
 | React      | Node.js     | JWT          | VS Code        |
 | JSX/CSS    | Express.js  | Bcrypt       | Postman        |
-| Axios      | CORS        | .env Config  | npm            |
 
 ---
 
