@@ -1,15 +1,28 @@
-# Quiz Project
+# 🧠 Quiz Web Application
 
-A full-stack quiz application with user authentication, built using Node.js, Express, and React.
+An interactive, full-stack Quiz Web App designed to engage users with organized quizzes, user login, and real-time feedback. Built using **React**, **Node.js**, and **Express**.
 
-## Features
+---
 
-- User Registration and Login
-- Secure Authentication using JWT
-- Interactive Quiz Interface
-- Frontend built with React
-- Backend powered by Express.js
-- Environment variables configured using `.env`
+## 🚀 Features
 
+- 🔐 Secure User Registration & Login (JWT Authentication)
+- 🧩 Multiple Quiz Sections
+- 🕐 Real-time Quiz Attempting
+- 🎯 Result Evaluation & Feedback
+- ⚛️ Component-Based React Frontend
+- 🌐 RESTful API with Express Backend
+
+---
+
+## 🛠️ Tech Stack
+
+| Frontend   | Backend     | Auth         | Tools         |
+|------------|-------------|--------------|----------------|
+| React      | Node.js     | JWT          | VS Code        |
+| JSX/CSS    | Express.js  | Bcrypt       | Postman        |
+| Axios      | CORS        | .env Config  | npm            |
+
+---
 
 
